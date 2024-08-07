@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3bfc64a-88c2-48bb-aa88-4fc834d48842" name="Changes" comment="" />
+    <list default="true" id="a3bfc64a-88c2-48bb-aa88-4fc834d48842" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2kJqUBiRQLXAJLmkhTkBh1Yvj0r" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -20,8 +26,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Documents/java/toy2/toy2",
+    "last_opened_file_path": "C:/Users/user/Documents/java/toy2/toy2/src/main/java/com/fastcampus/toy2/domain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -33,6 +40,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\java\toy2\toy2\src\main\java\com\fastcampus\toy2\domain" />
+      <recent name="C:\Users\user\Documents\java\toy2\toy2\src\main\java\com\fastcampus\toy2\controller" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -50,6 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723012044702</updated>
       <workItem from="1723012045769" duration="495000" />
+      <workItem from="1723021591235" duration="156000" />
     </task>
     <servers />
   </component>
