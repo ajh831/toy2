@@ -1,34 +1,19 @@
 package com.fastcampus.toy2.dao.Order;
 
 import com.fastcampus.toy2.domain.Order.CartDto;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class CartDao implements CartDaoImpl {
-    @Autowired
-    private SqlSession session;
-    private static String namespace = "com.fastcampus.toy2.dao.CartMapper.";
+public interface CartDao {
+    int count() throws Exception;
 
-    @Override
-    public int count() throws Exception {
-        return session.selectOne(namespace + "count");
-    }
+    int deleteAll() throws Exception;
 
-    @Override
-    public int deleteAll() throws Exception {
-        return session.delete(namespace + "deleteAll");
-    }
+    int insert(CartDto cartDto) throws Exception;
 
-    @Override
-    public int insert(CartDto cartDto) throws Exception {
-        return session.insert(namespace + "insert", cartDto);
-    }
+    int update(String crt_id) throws Exception;
 
-    @Override
-    public int update(CartDto cartDto) throws Exception {
-        return session.update(namespace + "update", cartDto);
-    }
+    CartDto selectCartId(String crt_id) throws Exception;
 
+    String maxCartSeq(String datePart) throws Exception;
+
+    CartDto selectUserCartActive(String mbr_id) throws Exception;
 }

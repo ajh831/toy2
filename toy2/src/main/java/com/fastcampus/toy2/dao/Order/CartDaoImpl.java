@@ -1,13 +1,49 @@
 package com.fastcampus.toy2.dao.Order;
 
 import com.fastcampus.toy2.domain.Order.CartDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public interface CartDaoImpl {
-    int count() throws Exception;
+@Repository
+public class CartDaoImpl implements CartDao {
+    @Autowired
+    private SqlSession session;
+    private static String namespace = "com.fastcampus.toy2.dao.CartMapper.";
 
-    int deleteAll() throws Exception;
+    @Override
+    public int count() throws Exception {
+        return session.selectOne(namespace + "count");
+    }
 
-    int insert(CartDto cartDto) throws Exception;
+    @Override
+    public int deleteAll() throws Exception {
+        return session.delete(namespace + "deleteAll");
+    }
 
-    int update(CartDto cartDto) throws Exception;
+    @Override
+    public int insert(CartDto cartDto) throws Exception {
+        return session.insert(namespace + "insert", cartDto);
+    }
+
+    @Override
+    public int update(String crt_id) throws Exception {
+        return session.update(namespace + "update", crt_id);
+    }
+
+    @Override
+    public CartDto selectCartId(String crt_id) throws Exception {
+        return session.selectOne(namespace + "selectCartId", crt_id);
+    }
+
+    @Override
+    public String maxCartSeq(String datePart) throws Exception{
+        return session.selectOne(namespace + "maxCartSeq", datePart);
+    }
+
+    @Override
+    public CartDto selectUserCartActive(String mbr_id) throws Exception{
+        return session.selectOne(namespace + "userCartActive", mbr_id);
+    }
+
 }
