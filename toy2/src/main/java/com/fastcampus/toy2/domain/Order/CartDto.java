@@ -1,10 +1,13 @@
 package com.fastcampus.toy2.domain.Order;
 
+import org.springframework.lang.NonNull;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 public class CartDto {
+//    @NonNull
     private String crt_id;
     private String mbr_id;
     private char crt_st;

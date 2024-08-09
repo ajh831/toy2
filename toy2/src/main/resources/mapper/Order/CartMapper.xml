@@ -36,7 +36,7 @@
             VALUES (#{crt_id}, #{mbr_id}, #{mbr_id}, #{mbr_id})
     </insert>
 
-    <!--기존의 장바구니가 사라지고 새로운 장바구니를 추가하는 경우 기존의 장바구니의 상태는 비활성화-->
+    <!--기존의 장바구니가 사라지고 새로운 장바구니를 추가하는 경우 기존의 장바구니의 상태는 비활성화 updateStatus-->
     <update id="update" parameterType="String">
         UPDATE cart
         SET crt_st = 'N'
