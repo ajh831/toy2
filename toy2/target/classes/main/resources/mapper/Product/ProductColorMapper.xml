@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fastcampus.toy2.dao.Product.ProductColorMapper">
+    <!-- count -->
+    <select id="count" resultType="int">
+        SELECT count(*)
+        FROM product_color
+    </select>
+    <!-- select -->
+    <sql id="select">
+        SELECT color_code, english_color, korean_color, created_dt, created_id, updated_dt, updated_id
+        FROM product_color
+    </sql>
+    <select id="selectByColorCode" parameterType="String" resultType="ProductColorDto">
+        <include refid="select" />
+        WHERE color_code = #{color_code}
+    </select>
+    <select id="selectAll" resultType="ProductColorDto">
+        <include refid="select" />
+    </select>
+    <select id="selectlikename" parameterType="Map" resultType="ProductColorDto">
+        <include refid="select" />
+        WHERE english_color LIKE concat('%', #{keyword}, '%')
+        LIMIT #{offset}, #{pageSize}
+    </select>
+    <!-- insert -->
+    <insert id="insert" parameterType="ProductColorDto">
+        INSERT INTO product_color
+            (color_code, english_color, korean_color, created_id, updated_id)
+        VALUES
+            (#{color_code}, #{english_color}, #{korean_color}, #{created_id}, #{updated_id})
+    </insert>
+    <!-- delete -->
+    <sql id="delete">
+        DELETE FROM product_color
+    </sql>
+    <delete id="deleteOne" parameterType="String">
+        <include refid="delete" />
+        WHERE color_code = #{color_code}
+    </delete>
+    <delete id="deleteAll">
+        <include refid="delete" />
+    </delete>
+    <!-- update -->
+    <update id="update" parameterType="ProductColorDto">
+        UPDATE product_color
+        SET
+            english_color = #{english_color},
+            korean_color = #{korean_color},
+            updated_id = #{updated_id}
+    </update>
+</mapper>
