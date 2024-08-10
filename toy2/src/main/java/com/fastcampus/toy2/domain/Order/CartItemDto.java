@@ -1,12 +1,14 @@
 package com.fastcampus.toy2.domain.Order;
 
+import java.sql.Timestamp;
+
 public class CartItemDto {
-    private String crt_id;
+    private Long crt_id;
     private Integer crt_seq;
     private String style_num;
     private Integer p_size;
     private Integer count;
-    private char ord_st;
+    private Timestamp crt_item_date;
     private char state;
 
     CartItemDto() {
@@ -19,11 +21,11 @@ public class CartItemDto {
         this.style_num = builder.style_num;
         this.p_size = builder.p_size;
         this.count = builder.count;
-        this.ord_st = builder.ord_st;
+        this.crt_item_date = builder.crt_item_date;
         this.state = builder.state;
     }
 
-    public String getCrt_id() {
+    public Long getCrt_id() {
         return crt_id;
     }
 
@@ -43,8 +45,8 @@ public class CartItemDto {
         return count;
     }
 
-    public char getOrd_st() {
-        return ord_st;
+    public Timestamp getCrt_item_date() {
+        return crt_item_date;
     }
 
     public char getState() {
@@ -52,15 +54,15 @@ public class CartItemDto {
     }
 
     public static class Builder {
-        private String crt_id;
+        private Long crt_id;
         private Integer crt_seq;
         private String style_num;
         private Integer p_size;
         private Integer count;
-        private char ord_st;
+        private Timestamp crt_item_date;
         private char state;
 
-        public Builder crt_id(String crt_id) {
+        public Builder crt_id(Long crt_id) {
             this.crt_id = crt_id;
             return this;
         }
@@ -85,8 +87,8 @@ public class CartItemDto {
             return this;
         }
 
-        public Builder ord_st(char ord_st) {
-            this.ord_st = ord_st;
+        public Builder crt_item_date(Timestamp crt_item_date) {
+            this.crt_item_date = crt_item_date;
             return this;
         }
 
