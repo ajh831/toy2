@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
     <data-source source="LOCAL" name="toy2" uuid="ffda4dcc-aa00-4ecc-994e-49914e766b38">
+=======
+    <data-source source="LOCAL" name="toy2" uuid="5ee2ee75-f1d5-434a-a4dc-fce7a829d823">
+>>>>>>> jengns2611-dev
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
