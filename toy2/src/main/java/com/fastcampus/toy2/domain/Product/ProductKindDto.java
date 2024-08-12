@@ -1,7 +1,5 @@
 package com.fastcampus.toy2.domain.Product;
 
-import main.java.com.fastcampus.toy2.domain.Admin.AdminDto;
-
 import java.util.Date;
 import java.util.Objects;
 

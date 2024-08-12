@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -21,7 +22,12 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public ProductDto selectOne(String product_id) throws SQLException {
+    public int salecount() throws SQLException {
+        return session.selectOne(namespace + "salecount");
+    }
+
+    @Override
+    public ProductDto selectById(String product_id) throws SQLException {
         return session.selectOne(namespace + "selectOneById", product_id);
     }
 
@@ -42,8 +48,14 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public int update(ProductDto productDto) throws SQLException {
-        System.out.println("update : " +productDto.toString());
+        //System.out.println("update : " +productDto.toString());
         return session.update(namespace + "update", productDto);
+    }
+
+    @Override
+    public int updateSaleState(String product_id) throws Exception {
+        //ProductDto productDto = selectById(product_id);
+        return session.update(namespace + "updateSaleState", product_id);
     }
 
     @Override
@@ -54,6 +66,14 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public int deleteAll() throws SQLException {
         return session.delete(namespace + "deleteAll");
+    }
+
+    public List<ProductDto> findProductpage(int page, int size) {
+        int offset = (page - 1) * size;
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("offset", offset);
+        map.put("size", size);
+        return session.selectList(namespace + "selectPage", map);
     }
 
 }
