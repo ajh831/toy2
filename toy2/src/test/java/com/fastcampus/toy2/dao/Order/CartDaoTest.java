@@ -1,6 +1,7 @@
 package com.fastcampus.toy2.dao.Order;
 
 import com.fastcampus.toy2.domain.Order.CartDto;
+import com.fastcampus.toy2.domain.User.MemberDto;
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -42,10 +43,12 @@ public class CartDaoTest extends TestCase {
 
         // 1. 주문을 장바구니에 담는다.
         // 2. 장바구니 번호는 auto increasement로 자동증가한다.
+        MemberDto memberDto = new MemberDto();
         String mbr_id = "asdf123";
+        memberDto.setMbr_id(mbr_id);
 
         CartDto cartDtoInsert = new CartDto.Builder()
-                .mbr_id(mbr_id)
+                .mbr_id(memberDto.getMbr_id())
                 .build();
 
         cnt = cartDao.insert(cartDtoInsert);
@@ -72,13 +75,15 @@ public class CartDaoTest extends TestCase {
         // 1. 주문을 장바구니에 담는다.
         // 2. 장바구니 번호는 auto increasement로 자동증가한다.
 
+        MemberDto memberDto = new MemberDto();
         String mbr_id = "asdf123";
+        memberDto.setMbr_id(mbr_id);
         List<CartDto> cartDtoList;
 
         for (int i = 0; i < 1000; i++) {
 
             CartDto cartDtoInsert = new CartDto.Builder()
-                    .mbr_id(mbr_id)
+                    .mbr_id(memberDto.getMbr_id())
                     .build();
 
             cnt = cartDao.insert(cartDtoInsert);
@@ -101,10 +106,12 @@ public class CartDaoTest extends TestCase {
 
         String user_id;
         for (int i = 0; i < 10000; i++) {
+            MemberDto memberDto = new MemberDto();
             user_id = "asdf" + i;
+            memberDto.setMbr_id(user_id);
 
             CartDto cartDtoInsert = new CartDto.Builder()
-                    .mbr_id(user_id)
+                    .mbr_id(memberDto.getMbr_id())
                     .build();
 
             cnt = cartDao.insert(cartDtoInsert);

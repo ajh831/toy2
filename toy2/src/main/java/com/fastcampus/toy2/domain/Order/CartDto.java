@@ -1,13 +1,18 @@
 package com.fastcampus.toy2.domain.Order;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class CartDto {
 //    @NonNull
     private Long crt_id;
     private String mbr_id;
+    private Timestamp created_dt;
+    private String created_id;
+    private Timestamp updated_dt;
+    private String updated_id;
 
-    CartDto() {
+    public CartDto() {
 
     }
 
