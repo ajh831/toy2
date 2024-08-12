@@ -54,7 +54,7 @@
     </delete>
 
     <!-- update 사용하는 경우
-     1) 회원정보 수정 가능 내용 - 비밀번호, 핸드폰 번호, 이메일, 주소, 선택동의사항
+     1) 회원정보 수정 가능 내용 - 비밀번호, 핸드폰 번호, 이메일, 주소, 선택동의사항 now()로 쓰면 다 같이 now적용됨X
     -->
     <update id="update" parameterType="MemberDto">
         UPDATE member

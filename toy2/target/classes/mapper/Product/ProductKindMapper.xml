@@ -48,5 +48,15 @@
             style_num = #{style_num}
     </update>
     <!-- delete -->
+    <sql id="delete">
+        DELETE FROM product_kind
+    </sql>
+    <delete id="DeleteById" parameterType="String">
+        <include refid="delete" />
+        WHERE style_num = #{style_num}
+    </delete>
+    <delete id="DeleteAll">
+        <include refid="delete" />
+    </delete>
 
 </mapper>

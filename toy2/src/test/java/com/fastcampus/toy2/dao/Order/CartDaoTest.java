@@ -118,6 +118,7 @@ public class CartDaoTest extends TestCase {
         }
 
         int count_row = cartDao.count();
+        System.out.println("count_row = " + count_row);
         assertTrue(count_row == 10000);
 
         String select_mbr_id = cartDao.selectUserCart(mbr_id).getMbr_id();

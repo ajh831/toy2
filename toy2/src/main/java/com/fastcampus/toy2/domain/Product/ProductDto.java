@@ -152,3 +152,133 @@ public class ProductDto {
             this.p_discount_per = p_discount_per;
             return this;
         }
+
+        public Builder member_benefit_price(Integer member_benefit_price) {
+            this.member_benefit_price = member_benefit_price;
+            return this;
+        }
+
+        public Builder p_average_grade(Float p_average_grade) {
+            this.p_average_grade = p_average_grade;
+            return this;
+        }
+
+        public Builder p_brief_text(String p_brief_text) {
+            this.p_brief_text = p_brief_text;
+            return this;
+        }
+
+        public Builder materials_care_methods(String materials_care_methods) {
+            this.materials_care_methods = materials_care_methods;
+            return this;
+        }
+
+        public Builder sale_state(String sale_state) {
+            this.sale_state = sale_state;
+            return this;
+        }
+
+        public Builder main_image_url(String main_image_url) {
+            this.main_image_url = main_image_url;
+            return this;
+        }
+
+        public Builder p_season(String p_season) {
+            this.p_season = p_season;
+            return this;
+        }
+
+        public Builder category_id(Integer category_id) {
+            this.category_id = category_id;
+            return this;
+        }
+
+        public Builder created_dt(Date created_dt) {
+            this.created_dt = created_dt;
+            return this;
+        }
+
+        public Builder created_id(String created_id) {
+            this.created_id = created_id;
+            return this;
+        }
+
+        public Builder updated_dt(Date updated_dt) {
+            this.updated_dt = updated_dt;
+            return this;
+        }
+
+        public Builder updated_id(String updated_id) {
+            this.updated_id = updated_id;
+            return this;
+        }
+
+        public ProductDto build() {
+            return new ProductDto(this);
+        }
+    }
+
+    public String getProduct_id() {
+        return product_id;
+    }
+
+    public String getP_name() {
+        return p_name;
+    }
+
+    public String getP_gender() {
+        return p_gender;
+    }
+
+    public Integer getP_origin_price() {
+        return p_origin_price;
+    }
+
+    public Integer getP_sale_price() {
+        return p_sale_price;
+    }
+
+    public Integer getP_discount_per() {
+        return p_discount_per;
+    }
+
+    public Integer getMember_benefit_price() {
+        return member_benefit_price;
+    }
+
+    public Float getP_average_grade() {
+        return p_average_grade;
+    }
+
+    public String getP_brief_text() {
+        return p_brief_text;
+    }
+
+    public String getMaterials_care_methods() {
+        return materials_care_methods;
+    }
+
+    public String getSale_state() {
+        return sale_state;
+    }
+
+    public String getMain_image_url() {
+        return main_image_url;
+    }
+
+    public String getP_season() {
+        return p_season;
+    }
+
+    public Integer getCategory_id() {
+        return category_id;
+    }
+
+    public String getCreated_id() {
+        return created_id;
+    }
+
+    public String getUpdated_id() {
+        return updated_id;
+    }
+}

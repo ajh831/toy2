@@ -5,13 +5,13 @@
 <mapper namespace="com.fastcampus.toy2.dao.CartMapper">
     <sql id="selectFromCart">
         SELECT crt_id, mbr_id,
-               create_dt, create_id, update_dt, update_id
+               created_dt, created_id, updated_dt, updated_id
         FROM cart
     </sql>
 
     <!-- 전체 장바구니 수 확인  -->
     <!--  장바구니 번호 만들때 사용도 가능  -->
-    <select id="count" resultType="Long">
+    <select id="count" resultType="int">
         SELECT count(*)
         FROM cart
     </select>
@@ -69,7 +69,7 @@
     </select>
 
     <!-- 비회원들의 장바구니 수 확인  -->
-    <select id="countNoMember" resultType="Long">
+    <select id="countNoMember" resultType="int">
         SELECT count(*)
         FROM cart
         WHERE mbr_id IS NULL

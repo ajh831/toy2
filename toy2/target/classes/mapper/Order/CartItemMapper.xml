@@ -6,7 +6,7 @@
     <sql id="selectFromCartItem">
         SELECT crt_id, crt_seq, style_num, p_size,
                count, crt_item_date, crt_item_update,
-               create_dt, create_id, update_dt, update_id
+               created_dt, created_id, updated_dt, updated_id
         FROM cart_item
     </sql>
 
