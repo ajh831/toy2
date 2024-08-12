@@ -7,5 +7,6 @@
         <typeAlias alias="CartDto" type="com.fastcampus.toy2.domain.Order.CartDto"/>
         <typeAlias alias="CartItemDto" type="com.fastcampus.toy2.domain.Order.CartItemDto"/>
         <typeAlias alias="CartItemHistoryDto" type="com.fastcampus.toy2.domain.Order.CartItemHistoryDto"/>
+        <typeAlias alias="MemberDto" type="com.fastcampus.toy2.domain.User.MemberDto"/>
     </typeAliases>
 </configuration>
