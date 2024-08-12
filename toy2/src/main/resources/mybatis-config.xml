@@ -4,10 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-<<<<<<< HEAD
         <typeAlias alias="CartDto" type="com.fastcampus.toy2.domain.Order.CartDto"/>
-=======
         <typeAlias alias="MemberDto" type="com.fastcampus.toy2.domain.User.MemberDto"/>
->>>>>>> jengns2611-dev
     </typeAliases>
 </configuration>
