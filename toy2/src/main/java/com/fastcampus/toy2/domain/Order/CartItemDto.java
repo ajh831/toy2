@@ -2,13 +2,22 @@ package com.fastcampus.toy2.domain.Order;
 
 import java.sql.Timestamp;
 import java.util.Objects;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class CartItemDto {
     private Long crt_id;
     private Integer crt_seq;
+
+    @NotEmpty(message = "상품 정보가 올바르지 않습니다.")
     private String style_num;
+
+    @NotNull(message = "사이즈를 선택해 주시기 바랍니다.")
     private Integer p_size;
+
+    @NotNull(message = "수량을 선택해 주시기 바랍니다.")
     private Integer count;
+
     private Timestamp crt_item_date;
     private Timestamp crt_item_update;
     private Timestamp created_dt;

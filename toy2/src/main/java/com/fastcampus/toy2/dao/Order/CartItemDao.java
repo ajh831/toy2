@@ -15,31 +15,31 @@ public class CartItemDao {
     private SqlSession session;
     private static String namespace = "com.fastcampus.toy2.dao.CartItemMapper.";
 
-    int count() throws Exception {
+    public int count() throws Exception {
         return session.selectOne(namespace + "count");
     }
 
-    int insert(Map map) throws Exception {
+    public int insert(Map map) throws Exception {
         return session.insert(namespace + "insert", map);
     }
 
-    int updateOption(CartItemDto cartItemDto) throws Exception {
+    public int updateOption(CartItemDto cartItemDto) throws Exception {
         return session.update(namespace + "updateOption", cartItemDto);
     }
 
-    int countCartItem(Long crt_id) throws Exception {
+    public int countCartItem(Long crt_id) throws Exception {
         return session.selectOne(namespace + "countCartItem", crt_id);
     }
 
-    int deleteCartItem(Map map) throws Exception {
+    public int deleteCartItem(Map map) throws Exception {
         return session.delete(namespace + "deleteCartItem", map);
     }
 
-    int updateNewCartItem(Long crt_id) throws Exception {
+    public int updateNewCartItem(Long crt_id) throws Exception {
         return session.update(namespace + "updateNewCartItem", crt_id);
     }
 
-    Integer maxCartCrtSeq(Long crt_id) throws Exception {
+    public Integer maxCartCrtSeq(Long crt_id) throws Exception {
         return session.selectOne(namespace + "maxCartCrtSeq", crt_id);
     }
 
@@ -47,11 +47,11 @@ public class CartItemDao {
         return session.delete(namespace + "deleteAll");
     }
 
-    CartItemDto selectCartItem(CartItemDto cartItemDto) throws Exception {
+    public CartItemDto selectCartItem(CartItemDto cartItemDto) throws Exception {
         return session.selectOne(namespace + "selectCartItem", cartItemDto);
     }
 
-    List<Integer> selectCrtSeqListByCrtId(Long crt_id) throws Exception {
+    public List<Integer> selectCrtSeqListByCrtId(Long crt_id) throws Exception {
         return session.selectList(namespace + "selectCrtSeqListByCrtId", crt_id);
     }
 

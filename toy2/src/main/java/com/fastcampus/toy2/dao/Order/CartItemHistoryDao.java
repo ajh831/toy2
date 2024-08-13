@@ -15,19 +15,19 @@ public class CartItemHistoryDao {
     private SqlSession session;
     private static String namespace = "com.fastcampus.toy2.dao.CartItemHistoryMapper.";
 
-    int count() throws Exception {
+    public int count() throws Exception {
         return session.selectOne(namespace + "count");
     }
 
-    int insert(Map map) throws Exception {
+    public int insert(Map map) throws Exception {
         return session.insert(namespace + "insert", map);
     }
 
-    int deleteAll() throws Exception {
+    public int deleteAll() throws Exception {
         return session.delete(namespace + "deleteAll");
     }
 
-    List<CartItemHistoryDto> selectCartItemHistory(CartItemDto CartItemDto) throws Exception {
+    public List<CartItemHistoryDto> selectCartItemHistory(CartItemDto CartItemDto) throws Exception {
         return session.selectList(namespace + "selectCartItemHistory", CartItemDto);
     }
 }
