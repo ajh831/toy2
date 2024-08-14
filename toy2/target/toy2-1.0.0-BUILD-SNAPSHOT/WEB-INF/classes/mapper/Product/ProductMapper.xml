@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.fastcampus.toy2.dao.ProductMapper">
+<mapper namespace="com.fastcampus.toy2.dao.Product.ProductMapper">
+    <sql id="selectFromProduct">
+        SELECT product_id, p_name, p_gender, p_origin_price,
+               p_sale_price, p_discount_per, member_benefit_price,
+               p_average_grade, p_brief_text, materials_care_methods,
+               sale_state, main_image_url, p_season, category_id,
+               created_dt, created_id, updated_dt, updated_id
+        FROM product
+    </sql>
 
+    <select id="selectOneById" parameterType="String" resultType="ProductDto">
+        <include refid="selectFromProduct"></include>
+        WHERE product_id = #{product_id}
+    </select>
 </mapper>

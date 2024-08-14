@@ -114,7 +114,8 @@
 //    public void 데이터_NotNull_테스트() throws Exception {
 //        /**
 //         * ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'product_id' cannot be null
-//         * ### The error may exist in file [C:\Usersuser\Documents\java\toy2\toy2\target\classes\mapper\Product\ProductMapper.xml]
+//         * ### The error may exist in file [C:\Usersuser\Documents\java\toy2\toy2\target\classes\mapper\Product\
+//         ProductMapper.xml]
 //         * ### The error may involve com.fastcampus.toy2.dao.Product.ProductMapper.insert-Inline
 //         * ### The error occurred while setting parameters
 //         * ### SQL: INSERT INTO product         (             product_id,             p_name,             p_gender,             p_origin_price,             p_sale_price,             p_discount_per,             member_benefit_price,             p_average_grade,             p_brief_text,             materials_care_methods,             sale_state,             main_image_url,             p_season,             category_id,             created_id,             updated_id         )         VALUES         (             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?,             ?         )
