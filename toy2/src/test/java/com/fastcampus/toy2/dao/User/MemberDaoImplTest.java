@@ -1,5 +1,6 @@
 package com.fastcampus.toy2.dao.User;
 
+import com.fastcampus.toy2.dao.User.MemberDao;
 import com.fastcampus.toy2.domain.User.MemberDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,21 +8,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.Date;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
 public class MemberDaoImplTest {
     @Autowired
     MemberDao memberDao;
 
     // 성공 케이스
     // 실패 케이스
+    @Autowired
+    DataSource ds;
+
+    @Test
+    public void 데이터베이스_연결_테스트() throws Exception {
+        try {
+            Connection conn = ds.getConnection(); // 데이터베이스의 연결을 얻는다.
+            System.out.println("conn = " + conn);
+            assertTrue(conn != null);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            //Access denied for user 'root'@'localhost' (using password: YES) : password 틀릴 때
+            //Access denied for user 'roo'@'localhost' (using password: YES) : username 틀릴 때
+            //Unknown database 'toy3' : 스키마 이름 틀릴 때
+        }
+    }
 
     @Test
     public void selectMemberIdTest() throws Exception {

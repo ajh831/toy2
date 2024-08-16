@@ -57,7 +57,7 @@
     </select>
 
     <!--   고객의 활성상태 장바구니가 존재하는지 확인  -->
-    <select id="userCart" parameterType="String" resultType="CartDto">
+    <select id="userCartActive" parameterType="String" resultType="CartDto">
         <include refid="selectFromCart"/>
         WHERE mbr_id = #{mbr_id}
             AND crt_st = 'Y'
