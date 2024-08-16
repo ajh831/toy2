@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+=======
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+>>>>>>> jengns2611-dev
 
 <mapper namespace="com.fastcampus.toy2.dao.AdminMapper">
 

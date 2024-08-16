@@ -10,6 +10,9 @@
         <module name="toy2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="toy2" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fastcampus.toy2.dao.Product.ProductKindMapper">
+    <!-- count -->
+    <select id="count">
+        SELECT count(*)
+        FROM product_stock
+    </select>
+    <!-- select -->
+    <sql id="select">
+        SELECT
+            style_num,
+            p_size,
+            p_stock,
+            sale_state,
+            created_dt,
+            created_id,
+            updated_dt,
+            updated_id
+        FROM product_stock
+    </sql>
+    <!-- -->
+    <select id="selectByStyleNum" parameterType="String" resultType="ProductStockDto">
+        <include refid="select" />
+        WHERE style_num = #{style_num}
+    </select>
+    <select id="selectBy"
+
+    <!-- insert -->
+    <!-- update -->
+    <!-- delete -->
+
+</mapper>

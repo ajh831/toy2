@@ -1,19 +1,18 @@
 package com.fastcampus.toy2.controller;
 
-import static org.junit.Assert.assertTrue;
-
-import java.sql.Connection;
-
-import javax.sql.DataSource;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
+@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class DBConnectionTestV3 {
     @Autowired
     DataSource ds; // 컨테이너로부터 자동 주입받는다.
