@@ -67,4 +67,10 @@ public class ProductKindDaoImpl implements ProductKindDao {
     public int selectProductDetailOption(String style_num) throws Exception {
         return sqlSession.selectOne(namespace + "selectProductDetailOption", style_num);
     }
+
+    @Override
+    public List<ProductKindDto> selectByProductId(String product_id) throws Exception {
+        return sqlSession.selectList(namespace + "selectByProductId", product_id);
+    }
+
 }

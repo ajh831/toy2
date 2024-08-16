@@ -119,4 +119,6 @@ public class ProductStockDto {
         }
     }
 
+    public ProductStockDto() {
+    }
 }

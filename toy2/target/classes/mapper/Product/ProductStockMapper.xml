@@ -32,4 +32,11 @@
     <!-- update -->
     <!-- delete -->
 
+
+    <!--  product_id가 일치하는 style_num 별로 사이즈와 재고 조회  -->
+    <select id="selectByProductId" parameterType="String" resultType="ProductStockDto">
+        <include refid="select" />
+        WHERE style_num LIKE #{product_id};
+    </select>
+
 </mapper>

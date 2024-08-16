@@ -232,14 +232,6 @@ public class CartItemDaoTest extends TestCase {
                     productKindDto.getP_size(),
                     count);
 
-//            CartItemDto cartItemDto = new CartItemDto.Builder()
-//                    .crt_id(cartDto.getCrt_id())
-//                    .crt_seq(crt_seq)
-//                    .style_num(productKindDto.getStyle_num())
-//                    .p_size(productKindDto.getP_size())
-//                    .count(count)
-//                    .build();
-
             cartItemList.add(cartItemDto);
 
             crt_seq += 1;

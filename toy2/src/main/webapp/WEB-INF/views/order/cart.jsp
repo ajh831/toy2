@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/css/modal.css"> <!-- 모달 스타일 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/cart.js"></script>
-<%--    <script src="/js/modal.js"></script> <!-- 모달 스크립트 추가 -->--%>
 </head>
 <body>
 <div class="shopping-bag">

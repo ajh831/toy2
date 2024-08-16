@@ -16,4 +16,5 @@ public interface ProductKindDao {
     int deleteAll() throws Exception;
 
     int selectProductDetailOption(String style_num) throws Exception;
+    List<ProductKindDto> selectByProductId(String product_id) throws Exception;
 }

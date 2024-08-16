@@ -7,13 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public class ProductStockDao {
-    @Autowired
-    private SqlSession sqlSession;
-    private static String namespace = "com.fastcampus.toy2.dao.Product.ProductStockMapper.";
+public interface ProductStockDao {
 
-    List<ProductStockDto> selectByStyleNum(String style_num) {
-        return sqlSession.selectList(namespace + "selectByStyleNum", style_num);
-    }
+    List<ProductStockDto> selectByProductId(String product_id) throws Exception;
 }

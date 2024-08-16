@@ -16,4 +16,5 @@ public interface CartService {
         */
     List<CartItemInfoDto> getCartProduct(List<CartItemDto> cartItemDtoList) throws Exception;
     String removeItems(List<Map<String, String>> items, HttpSession session) throws Exception;
+    Map<String, Object> getProductOptionsByStyleNum(String style_num) throws Exception;
 }

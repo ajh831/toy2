@@ -60,24 +60,22 @@
     </delete>
 
 
-
     <!--  옵션 변경하기 위해서 상품 정보 select  -->
-    <select id="selectProductDetailOption" parameterType="String" resultType="ProductDetailDto">
+    <!--  테이블 크기가 생각했을 때 작은 순으로 나열하면 product_color, product, product_kind, product_image  -->
+<!--    <select id="selectProductDetailOption" parameterType="String" resultType="ProductDetailDto">
         SELECT
-                pk.style_num,
-                pk.product_id,
-                pk.color_code,
-                p.p_sale_price,
-                pc.english_color,
-                pc.korean_color,
-                pi.photo_url
-        FROM
-                product_kind pk
-                    JOIN product p ON pk.product_id = p.product_id
-                    JOIN product_color pc ON pk.color_code = pc.color_code
-                    JOIN product_image pi ON pk.style_num = pi.style_num
+            pk.style_num,
+            pk.product_id,
+            pk.color_code,
+            p.p_sale_price,
+            pc.english_color,
+            pc.korean_color,
+        FROM product_color pc
+            JOIN product_kind pk ON pc.color_code = pk.color_code
+            JOIN product p ON pk.product_id = p.product_id
         WHERE
-                pk.style_num = #{style_num}
-    </select>
+            pk.style_num = #{style_num}
+            AND pi.using_state = 'Y'
+    </select>-->
 
 </mapper>

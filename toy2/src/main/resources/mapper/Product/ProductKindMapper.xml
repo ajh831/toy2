@@ -62,7 +62,7 @@
 
     <!--  옵션 변경하기 위해서 상품 정보 select  -->
     <!--  테이블 크기가 생각했을 때 작은 순으로 나열하면 product_color, product, product_kind, product_image  -->
-    <select id="selectProductDetailOption" parameterType="String" resultType="ProductDetailDto">
+<!--    <select id="selectProductDetailOption" parameterType="String" resultType="ProductDetailDto">
         SELECT
             pk.style_num,
             pk.product_id,
@@ -70,15 +70,12 @@
             p.p_sale_price,
             pc.english_color,
             pc.korean_color,
-            pi.photo_url
         FROM product_color pc
             JOIN product_kind pk ON pc.color_code = pk.color_code
             JOIN product p ON pk.product_id = p.product_id
-            JOIN product_image pi ON pk.style_num = pi.style_num
         WHERE
             pk.style_num = #{style_num}
             AND pi.using_state = 'Y'
-        ORDER BY pi.show_priority
-        LIMIT 1
-    </select>
+    </select>-->
+
 </mapper>
