@@ -61,4 +61,10 @@ public class ProductKindDaoImpl implements ProductKindDao {
     public int deleteAll() throws Exception {
         return sqlSession.delete(namespace + "deleteAll");
     }
+
+
+    @Override
+    public int selectProductDetailOption(String style_num) throws Exception {
+        return sqlSession.selectOne(namespace + "selectProductDetailOption", style_num);
+    }
 }

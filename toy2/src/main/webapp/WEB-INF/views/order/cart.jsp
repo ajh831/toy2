@@ -6,8 +6,10 @@
 <head>
     <title>Shopping Cart</title>
     <link rel="stylesheet" type="text/css" href="/css/cart.css">
+    <link rel="stylesheet" type="text/css" href="/css/modal.css"> <!-- 모달 스타일 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/cart.js"></script>
+<%--    <script src="/js/modal.js"></script> <!-- 모달 스크립트 추가 -->--%>
 </head>
 <body>
 <div class="shopping-bag">
@@ -17,7 +19,7 @@
             <!-- 전체 선택, 선택 삭제 -->
             <div class="head">
                 <input type="checkbox" class="cb__style1 checkAll" id="checkAll" name="checkAll" />
-                <label for="checkAll">전체선택 <span class="selectedCount">0</span>/${cartList.size()}</label>
+                <label for="checkAll">전체선택 <span class="checkboxCount">0</span>/<span id="cartListSize">${cartList.size()}</span></label>
                 <button type="button" class="delete__btn soldout">품절상품 삭제</button>
                 <button type="button" class="delete__btn select" style="margin-right:20px;">선택 삭제</button>
             </div>
@@ -29,7 +31,6 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <!-- 장바구니 리스트 -->
                     <ul class="order__list">
                         <c:forEach var="item" items="${cartList}">
                             <li class="product-item">
@@ -40,8 +41,8 @@
                                            data-stylenum="${item.cartItemDto.style_num}"
                                            data-psize="${item.cartItemDto.p_size}"
                                            id="checkProduct${item.cartItemDto.style_num}_${item.cartItemDto.p_size}"
-                                           name="checkwish_${item.cartItemDto.style_num}_${item.cartItemDto.p_size}" />
-                                    <label for="checkProduct${item.cartItemDto.crt_seq}"></label>
+                                           name="checkwish" />
+                                    <label for="checkProduct${item.cartItemDto.style_num}${item.cartItemDto.p_size}"></label>
                                 </div>
                                 <div class="photo">
                                     <img src="https://via.placeholder.com/100" alt="상품 이미지" />
@@ -57,7 +58,7 @@
                                     <p class="price">￦ ${item.productDto.p_origin_price * item.cartItemDto.count}</p>
                                 </div>
                                 <div class="btn-box">
-                                    <a href="#" class="option__btn white">옵션변경</a>
+                                    <a href="javascript:void(0);" class="option__btn white" onclick="openModal()">옵션변경</a>
                                     <a href="#" class="buy__btn black">바로구매</a>
                                 </div>
                             </li>
@@ -99,5 +100,41 @@
         </div>
     </div>
 </div>
+
+<!-- 옵션 변경 모달창 -->
+<div id="optionModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>OPTION</h2>
+        <div class="option-container">
+            <div class="color-selection">
+                <h3>Color</h3>
+                <div class="colors">
+                    <img src="https://via.placeholder.com/50" alt="Black">
+                    <img src="https://via.placeholder.com/50" alt="Green">
+                    <img src="https://via.placeholder.com/50" alt="Yellow">
+                </div>
+            </div>
+            <div class="size-selection">
+                <h3>Size</h3>
+                <select>
+                    <option value="000">000</option>
+                    <option value="001">001</option>
+                    <option value="002">002</option>
+                </select>
+            </div>
+            <div class="quantity-selection">
+                <h3>Quantity</h3>
+                <div class="quantity-box">
+                    <button onclick="decreaseQuantity()">-</button>
+                    <input type="text" value="1" id="quantity" readonly>
+                    <button onclick="increaseQuantity()">+</button>
+                </div>
+            </div>
+        </div>
+        <button class="change-btn">변경하기</button>
+    </div>
+</div>
+
 </body>
 </html>

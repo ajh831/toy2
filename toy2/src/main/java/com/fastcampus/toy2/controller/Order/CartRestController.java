@@ -1,6 +1,9 @@
 package com.fastcampus.toy2.controller.Order;
 
+import com.fastcampus.toy2.dao.Product.ProductKindDao;
+import com.fastcampus.toy2.dao.Product.ProductStockDao;
 import com.fastcampus.toy2.domain.Order.CartItemDto;
+import com.fastcampus.toy2.domain.Product.ProductKindDto;
 import com.fastcampus.toy2.service.Order.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +24,12 @@ public class CartRestController {
 
     @Autowired
     CartService cartService;
+
+    @Autowired
+    private ProductKindDao productKindDao;
+
+    @Autowired
+    private ProductStockDao productStockDao;
 
     /*
         고객(회원, 비회원)이 장바구니에 상품을 추가하는 경우
@@ -49,35 +59,6 @@ public class CartRestController {
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
 
-//    @PostMapping("/cart/removeItems")
-//    @ResponseBody
-//    public ResponseEntity<String> removeItems(@RequestBody List<Map<String, String>> items, HttpSession session) {
-//        try {
-//            // 세션에서 장바구니 리스트 가져오기
-//            List<CartItemDto> cartList = (List<CartItemDto>) session.getAttribute("cartList");
-//
-//            // items 리스트에 있는 style_num과 p_size를 이용해 해당 아이템을 삭제
-//            for (Map<String, String> item : items) {
-//                String style_num = item.get("style_num");
-//                System.out.println("style_num = " + style_num);
-//
-//                String p_size = item.get("p_size");
-//
-//                System.out.println("p_size = " + p_size);
-//
-//                cartList.removeIf(cartItem -> style_num.equals(cartItem.getStyle_num()) && p_size.equals(String.valueOf(cartItem.getP_size())));
-//            }
-//
-//            // 세션에 업데이트된 장바구니 리스트 저장
-//            session.setAttribute("cartList", cartList);
-//            System.out.println("Updated cartList: " + cartList);
-//
-//            return new ResponseEntity<>("상품 삭제 성공", HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>("상품 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-
     /*
         장바구니에서 상품을 삭제할 때
     */
@@ -85,34 +66,35 @@ public class CartRestController {
     @ResponseBody
     public ResponseEntity<String> removeItems(@RequestBody List<Map<String, String>> items, HttpSession session) {
         try {
-            // 세션에서 장바구니 리스트 가져오기
-            List<CartItemDto> cartList = (List<CartItemDto>) session.getAttribute("cartList");
-
-            if (cartList == null) {
-                return new ResponseEntity<>("장바구니가 비어 있습니다.", HttpStatus.BAD_REQUEST);
-            }
-
-            // items 리스트에 있는 style_num과 p_size를 이용해 해당 아이템을 삭제
-            for (Map<String, String> item : items) {
-                String style_num = item.get("style_num");
-                System.out.println("style_num = " + style_num);
-
-                String p_size = item.get("p_size");
-                System.out.println("p_size = " + p_size);
-
-                // 삭제 조건이 정확한지 확인하기 위해 로그 추가
-                boolean removed = cartList.removeIf(cartItem -> style_num.equals(cartItem.getStyle_num()) && p_size.equals(String.valueOf(cartItem.getP_size())));
-                System.out.println("Item removed: " + removed);
-            }
-
-            // 세션에 업데이트된 장바구니 리스트 저장
-            session.setAttribute("cartList", cartList);
-            System.out.println("Updated cartList: " + cartList);
-
-            return new ResponseEntity<>("상품 삭제 성공", HttpStatus.OK);
+            String result = cartService.removeItems(items, session);
+            return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>("상품 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /*
+    장바구니에서 옵션 변경하기 버튼을 클릭할 때
+    */
+    @PostMapping("/getProductOptions")
+    public ResponseEntity<Map<String, Object>> getProductOptions(@RequestParam("style_num") String style_num) {
+        /*
+            1. style_num을 받아온다.
+            2. style_num에서 product_id를 이용해서 product_kind 테이블의 product_id 컬럼이 일치하는 정보를 가지고 온다.
+                - 색상정보를 확인하면 style_num들을 알 수 있기 때문에 style_num이 일치하는 product_stock 테이블에서 상품 사이즈들을 가지고 온다.
+                - 상품 사이즈를 확인하면 해당 상품의 재고를 알 수 있다.
+                - 상품 이미지는 style_num을 가지고 product_image 테이블에서 표시 우선순위가 가장 작은 컬럼을 하나 구해온다.
+            3. 모든 상품 정보를 찾은 다음 model에 담아서 jsp로 전달한다.
+        */
+        try {
+            Map<String, Object> result = new HashMap<>();
+
+            // service 비즈니스로직 만들기
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }

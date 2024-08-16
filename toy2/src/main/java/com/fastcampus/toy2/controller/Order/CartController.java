@@ -28,6 +28,14 @@ public class CartController {
 
         1. 장바구니에 담고나서 로그인 하는 경우
         2. 로그인 하고 장바구니에 담는 경우
+
+
+        고객(회원, 비회원)이 장바구니에 담는 시기?
+
+        1. 장바구니에 담다가 중간에 로그인하는 경우
+        2. 장바구니에 담고 결제할 때 로그인하는 경우
+        3. 로그인 하고 장바구니에 담는 경우
+        4. 장바구니에 담고 결제할 때 비회원 구매하는 경우
     */
 
     // 바로구매하기 버튼을 클릭한다
@@ -54,13 +62,14 @@ public class CartController {
     */
     @RequestMapping("/cart")
     public String getCartList(Model model, HttpServletRequest request) throws Exception {
-
         HttpSession session = request.getSession();
         List<CartItemDto> cartItemDtoList = (List<CartItemDto>) session.getAttribute("cartList");
 
-        // 테스트
-        if (cartItemDtoList == null) {
+        // 테스트용 데이터 설정
+        if (cartItemDtoList == null || cartItemDtoList.isEmpty()) {
             cartItemDtoList = new ArrayList<>();
+
+            // 테스트용 데이터 추가
             CartItemDto sample = new CartItemDto();
             sample.setStyle_num("7K17664_K01");
             sample.setP_size(230);
@@ -72,11 +81,21 @@ public class CartController {
             sample2.setP_size(255);
             sample2.setCount(3);
             cartItemDtoList.add(sample2);
+
+            CartItemDto sample3 = new CartItemDto();
+            sample3.setStyle_num("7KC7602_K16");
+            sample3.setP_size(255);
+            sample3.setCount(3);
+            cartItemDtoList.add(sample3);
+
+            // 세션에 cartList를 저장
+            session.setAttribute("cartList", cartItemDtoList);
         }
 
+        // CartItemDto 목록을 통해 CartItemInfoDto 목록 생성
         List<CartItemInfoDto> cartItemInfoDtoList = cartService.getCartProduct(cartItemDtoList);
 
-        session.setAttribute("cartList", cartItemDtoList);
+        // cartList를 모델에 추가
         model.addAttribute("cartList", cartItemInfoDtoList);
 
         return "/order/cart";

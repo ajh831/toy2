@@ -14,4 +14,6 @@ public interface ProductKindDao {
     int update(ProductKindDto productKindDto) throws Exception;
     int delete(ProductKindDto productKindDto) throws Exception;
     int deleteAll() throws Exception;
+
+    int selectProductDetailOption(String style_num) throws Exception;
 }

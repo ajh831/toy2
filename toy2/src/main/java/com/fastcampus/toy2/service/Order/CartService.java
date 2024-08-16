@@ -3,7 +3,9 @@ package com.fastcampus.toy2.service.Order;
 import com.fastcampus.toy2.domain.Order.CartItemDto;
 import com.fastcampus.toy2.domain.Order.CartItemInfoDto;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 public interface CartService {
     /*
@@ -13,4 +15,5 @@ public interface CartService {
             3. 상품아이디로 product테이블의 정보를 가지고 온다.
         */
     List<CartItemInfoDto> getCartProduct(List<CartItemDto> cartItemDtoList) throws Exception;
+    String removeItems(List<Map<String, String>> items, HttpSession session) throws Exception;
 }

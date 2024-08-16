@@ -13,8 +13,10 @@ import com.fastcampus.toy2.domain.Product.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -101,4 +103,36 @@ public class CartServiceImpl implements CartService {
             3.1. 로그인 한 경우
             3.2. 비로그인인 경우
     */
+
+
+    /*
+        장바구니에서 상품을 삭제하는 경우
+    */
+    public String removeItems(List<Map<String, String>> items, HttpSession session) throws Exception {
+        // 세션에서 장바구니 리스트 가져오기
+        List<CartItemDto> cartList = (List<CartItemDto>) session.getAttribute("cartList");
+
+        if (cartList == null) {
+            return "장바구니가 비어 있습니다.";
+        }
+
+        // items 리스트에 있는 style_num과 p_size를 이용해 해당 아이템을 삭제
+        for (Map<String, String> item : items) {
+            String style_num = item.get("style_num");
+            System.out.println("style_num = " + style_num);
+
+            String p_size = item.get("p_size");
+            System.out.println("p_size = " + p_size);
+
+            // 삭제 조건이 정확한지 확인하기 위해 로그 추가
+            boolean removed = cartList.removeIf(cartItem -> style_num.equals(cartItem.getStyle_num()) && p_size.equals(String.valueOf(cartItem.getP_size())));
+            System.out.println("Item removed: " + removed);
+        }
+
+        // 세션에 업데이트된 장바구니 리스트 저장
+        session.setAttribute("cartList", cartList);
+        System.out.println("Updated cartList: " + cartList);
+
+        return "상품 삭제 성공";
+    }
 }
