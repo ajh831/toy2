@@ -1,0 +1,122 @@
+/* 전체 폼 스타일 */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* 헤더 스타일 */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* 섹션 헤더 스타일 */
+h3 {
+    color: #444;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* 인풋 필드 기본 스타일 */
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* 인풋 필드 포커스 스타일 */
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="email"]:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 체크박스 스타일 */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* 라벨 스타일 */
+label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* 버튼 스타일 */
+input[type="button"], button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover, button:hover {
+    background-color: #0056b3;
+}
+
+/* 에러 메시지 스타일 */
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* 성공 메시지 스타일 */
+.success {
+    color: green;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* 주소 입력 필드 스타일 */
+#addr_cd, #addr_line1, #addr_line2 {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+}
+
+/* 체크박스 리스트 스타일 */
+div > label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 폼 하단 버튼 영역 스타일 */
+.memberInfo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 취소 버튼 스타일 */
+#cancel {
+    background-color: #dc3545;
+}
+
+#cancel:hover {
+    background-color: #c82333;
+}
+
+/* 가입완료 버튼 스타일 */
+#signup {
+    background-color: #28a745;
+    margin-left: 10px;
+}
+
+#signup:hover {
+    background-color: #218838;
+}
