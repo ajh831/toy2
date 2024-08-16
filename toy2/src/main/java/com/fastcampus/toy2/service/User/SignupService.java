@@ -1,5 +1,5 @@
 package com.fastcampus.toy2.service.User;
 
-public class UserService {
+public class joinService {
 
 }
